@@ -1,5 +1,6 @@
 <script lang="ts">
     import HabitContainer from "../components/habitContainer.svelte";
+    import type { Habit } from "../main"
     export let data;
     let habits = data; 
     export let habitsArr = [];
@@ -12,7 +13,9 @@
 
     
 </script>
-
+    {#each habitsArr as habitArrItem}
+        <p>{habitArrItem.name}</p>
+    {/each}
    <div class="main flex justify-center">
        <HabitContainer />
    </div>
