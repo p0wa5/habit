@@ -1,3 +1,5 @@
+import { PrismaClient } from '@prisma/client'
+
 export interface Habit {
     id: number
     name: string
@@ -8,8 +10,6 @@ export interface Habit {
     updatedAt: Date
 }
 
-
-
 export function moveFetchedHabits(data:any) {
     let habits = data; 
     let habitsArr: Habit[]=[];
@@ -18,4 +18,15 @@ export function moveFetchedHabits(data:any) {
         habitsArr.push(habits.Habits[i])
     }
     return habitsArr
+}
+
+
+
+export async function deleteHabit(id: number){
+    const prisma = new PrismaClient();
+    const deleteHabit = await prisma.habit.delete({
+        where: {
+            id: 1
+        }
+    })
 }
