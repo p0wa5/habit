@@ -2,8 +2,8 @@ export interface Habit {
     id: number
     name: string
     description: string
-    intervalt: number
+    interval: number
     streak: number
-    created: Date
-    lastUpdated: Date
+    createdAt: Date
+    updatedAt: Date
 }

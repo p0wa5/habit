@@ -4,7 +4,7 @@
     export let data;
     
     let habits = data; 
-    let habitsArr = [];
+    let habitsArr: Habit[]=[];
 
     for(let i = 0; i < habits.Habits.length; i++){
         console.log(habits.Habits[i])
