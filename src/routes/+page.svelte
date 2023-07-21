@@ -1,15 +1,9 @@
 <script lang="ts">
     import HabitContainer from "../components/habitContainer.svelte";
     import type { Habit } from "../main"
+    import { moveFetchedHabits } from "../main"
     export let data;
-    
-    let habits = data; 
-    let habitsArr: Habit[]=[];
-
-    for(let i = 0; i < habits.Habits.length; i++){
-        console.log(habits.Habits[i])
-        habitsArr.push(habits.Habits[i])
-    }
+    let habitsArr = moveFetchedHabits(data); 
 </script>
 
 <div class="main flex justify-center">
