@@ -1,8 +1,8 @@
-export async function get() {
+export async function get(name: string) {
     return {
       status: 200,
       body: {
-        message: "Hello, API!",
+        message: `hello ${name}`,
       },
       headers: {
         "Content-Type": "application/json",
