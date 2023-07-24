@@ -12,7 +12,7 @@
   const deleteHabitAsync = async (id: number) => {
     try {
         console.log(`fetching the habit with the id ${id}`)
-        await fetch(`api/deleteHabit/${id}`)
+        await fetch(`http//localhost:5555/api/deleteHabit/${id}`)
         console.log("success")
   
     } catch {
