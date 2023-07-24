@@ -22,11 +22,4 @@ export function moveFetchedHabits(data:any) {
 
 
 
-export async function deleteHabit(id: number){
-    const prisma = new PrismaClient();
-    const deleteHabit = await prisma.habit.delete({
-        where: {
-            id: 1
-        }
-    })
-}
+
