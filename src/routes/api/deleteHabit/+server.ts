@@ -10,7 +10,7 @@ export async function DELETE({ request }: RequestEvent, id: number) {
                 id: id
             }
         });
-        return new Response("woijeoije");
+        return new Response("deleted");
     } catch (error) {
         console.log(error);
     }
