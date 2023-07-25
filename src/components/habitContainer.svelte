@@ -5,6 +5,7 @@
     deleteHabitAsync(id)
       .then(() => {
         // handle delete in view
+        habitsArr = habitsArr.filter((habit) => habit.id !== id)
       })
       .catch((error) => {
         console.error("Error deleting habit:", error);
