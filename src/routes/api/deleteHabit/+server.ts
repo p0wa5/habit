@@ -4,7 +4,6 @@ import type { RequestEvent } from "./$types";
 const prisma = new PrismaClient();
 
 export async function DELETE({ request }: RequestEvent) {
-   //let tempId: string = url.searchParams.get('id') ?? ''; 
     const jsonid = await request.json();
     try {
         await prisma.habit.delete({
