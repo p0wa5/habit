@@ -12,7 +12,13 @@
   };
   const deleteHabitAsync = async (id: number) => {
     console.log(`fetching the habit with the id ${id}`);
-    await fetch("../routes/api/deleteHabit");
+    await fetch("../api/deleteHabit/", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    });
   };
 </script>
 
