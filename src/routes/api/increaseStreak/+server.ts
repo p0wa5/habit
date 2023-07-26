@@ -11,7 +11,7 @@ export async function POST({ request }: RequestEvent) {
                 id: json.id  
             },
             data: {
-                streak: json.streakValue 
+                streak: json.streak 
             }
         });
         return new Response("deleted");

@@ -19,7 +19,6 @@ export function moveFetchedHabits(data:any) {
 }
 
 
-
 export const deleteHabittemp = (id: number) => {
     deleteHabitAsync(id)
       .then(() => {
@@ -45,4 +44,25 @@ export const deleteHabitAsync = async (id: number) => {
   };
 
 
+export const increaseStreak = (id: number, streak: number) => {
+  streak++
+  increaseStreakAsync(id, streak)
+  .then(() => {
+
+  })
+  .catch((error) => {
+    console.error("Error updating habit streak:", error)
+  })
+}
+
+export const increaseStreakAsync = async (id: number, streak: number) => {
+    console.log(`increasing the habit with the id ${id}`);
+    await fetch("../api/increaseStreak/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, streak }),
+    });
+  };
 
