@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import {writable} from "svelte/store"
+
 export interface Habit {
     id: number
     name: string
@@ -11,13 +12,13 @@ export interface Habit {
 }
 
 export let habitsStore = writable<Habit[]>([]);
+
 export function moveFetchedHabits(data:any) {
     let habits = data; 
     let habitsArr = habits.Habits;
     habitsStore.set(habitsArr)
     
 }
-
 
 export const deleteHabittemp = (id: number) => {
     deleteHabitAsync(id)
@@ -31,7 +32,6 @@ export const deleteHabittemp = (id: number) => {
       });
   };
 
-
 export const deleteHabitAsync = async (id: number) => {
     console.log(`fetching the habit with the id ${id}`);
     await fetch("../api/deleteHabit/", {
@@ -42,7 +42,6 @@ export const deleteHabitAsync = async (id: number) => {
       body: JSON.stringify({ id }),
     });
   };
-
 
   export const increaseStreak = (id: number, streak: number) => {
     streak++;
@@ -64,7 +63,6 @@ export const deleteHabitAsync = async (id: number) => {
       });
   };
   
-
 export const increaseStreakAsync = async (id: number, streak: number) => {
     console.log(`increasing the habit with the id ${id}`);
     await fetch("../api/increaseStreak/", {
@@ -75,4 +73,3 @@ export const increaseStreakAsync = async (id: number, streak: number) => {
       body: JSON.stringify({ id, streak }),
     });
   };
-
