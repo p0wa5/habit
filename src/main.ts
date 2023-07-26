@@ -44,16 +44,26 @@ export const deleteHabitAsync = async (id: number) => {
   };
 
 
-export const increaseStreak = (id: number, streak: number) => {
-  streak++
-  increaseStreakAsync(id, streak)
-  .then(() => {
-
-  })
-  .catch((error) => {
-    console.error("Error updating habit streak:", error)
-  })
-}
+  export const increaseStreak = (id: number, streak: number) => {
+    streak++;
+    increaseStreakAsync(id, streak)
+      .then(() => {
+        // The habitsStore.update call should be inside this then block
+        habitsStore.update((habits) => habits.map((habit) => {
+          if (habit.id === id) {
+            return {
+              ...habit,
+              streak: streak
+            };
+          }
+          return habit;
+        }));
+      })
+      .catch((error) => {
+        console.error("Error updating habit streak:", error);
+      });
+  };
+  
 
 export const increaseStreakAsync = async (id: number, streak: number) => {
     console.log(`increasing the habit with the id ${id}`);
