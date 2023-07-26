@@ -24,7 +24,6 @@ export const deleteHabittemp = (id: number) => {
     deleteHabitAsync(id)
       .then(() => {
         // handle delete in view
-       // habitsArr = habitsArr.filter((habit) => habit.id !== id)
        habitsStore.update((habits) => habits.filter((habit) => habit.id !== id))
       })
       .catch((error) => {
@@ -47,7 +46,7 @@ export const deleteHabitAsync = async (id: number) => {
     streak++;
     increaseStreakAsync(id, streak)
       .then(() => {
-        // The habitsStore.update call should be inside this then block
+        //handle streak update in the view
         habitsStore.update((habits) => habits.map((habit) => {
           if (habit.id === id) {
             return {
