@@ -1,26 +1,14 @@
 <script lang="ts">
   import type { Habit } from "@prisma/client";
   export let habitsArr: Habit[];
-  const deleteHabittemp = (id: number) => {
-    deleteHabitAsync(id)
-      .then(() => {
-        // handle delete in view
-        habitsArr = habitsArr.filter((habit) => habit.id !== id)
-      })
-      .catch((error) => {
-        console.error("Error deleting habit:", error);
-      });
-  };
-  const deleteHabitAsync = async (id: number) => {
-    console.log(`fetching the habit with the id ${id}`);
-    await fetch("../api/deleteHabit/", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id }),
-    });
-  };
+  import { deleteHabittemp } from "../main"
+  import { habitsStore } from "../main"
+
+  habitsStore.subscribe(value => {
+    habitsArr = value;
+  });
+
+
 </script>
 
 <div class="flex flex-col">
