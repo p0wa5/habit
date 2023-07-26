@@ -18,31 +18,31 @@
 </script>
 
 <div class="">
-  <form class="w-full" method="POST" action="?/createAssignment">
+  <form class="w-full" method="POST" action="?/createHabit">
     <div class="">
       *Assignment Name
       <input
         class="bg-slate-200 p-1 w-full border-2 border-black outline-0"
         type="text"
-        name="assignment-name"
+        name="habit-name"
         placeholder="homework"
       />
     </div>
     <div class="mb-2">
-      *Deadline
+      *description
       <input
         class="bg-slate-200 p-1 w-full border-2 border-black outline-0"
-        type="date"
-        name="deadline"
+        type="text"
+        name="habit-description"
         placeholder="mm/dd/yyyy"
       />
     </div>
     <div class="">
-      *Link
+      *intervall
       <input
         class="bg-slate-200 p-1 w-full border-2 border-black outline-0"
-        type="url"
-        name="link"
+        type="number"
+        name="habit-intervall"
         placeholder="Link"
       />
     </div>
