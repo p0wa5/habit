@@ -14,8 +14,9 @@ export async function POST({ request }: RequestEvent) {
                 streak: json.streak 
             }
         });
-        return new Response("deleted");
+        return new Response("Updated Habit streak successfully", {status: 200});
     } catch (error) {
+        return new Response("An error occured while updating the habit", {status: 500})
         console.log(error);
     }
 }
