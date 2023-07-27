@@ -9,19 +9,15 @@
     habitsArr = value;
   });
 </script>
-
-<div class="flex flex-col w-1/3 border-2 border-black justify-left p-4">
+<!-- A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event. -->
+<div class="flex flex-col w-1/3 h-96 border-2 justify-left p-4 rounded-xl bg-emerald-800">
   {#each habitsArr as habit, i}
-    <div class="border-2 w-1/2 m-1">
+    <div class="w-1/2 m-1 bg-emerald-600 rounded h-20 px-4 text-white" on:click={() => increaseStreak(habitsArr[i].id, habitsArr[i].streak)}>
       <div class="flex justify-between items-center">
         <p class="text-xl">{habitsArr[i].name}</p>
         <p class="text-2xl">{habitsArr[i].streak}</p>
       </div>
-      <button on:click={() => deleteHabittemp(habitsArr[i].id)}>x</button>
-      <button
-        on:click={() => increaseStreak(habitsArr[i].id, habitsArr[i].streak)}
-        >+</button
-      >
+      <!-- <button on:click={() => deleteHabittemp(habitsArr[i].id)}>x</button> -->
     </div>
   {/each}
 </div>

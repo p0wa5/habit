@@ -5,6 +5,10 @@ import { vitePreprocess } from "@sveltejs/kit/vite";
 const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
+  onwarn: (warning, handler) => {
+    if(warning.code === 'a1yy-click-events-have-key-events') return
+    handler(warning)
+  },
   preprocess: [vitePreprocess({})],
 
   kit: {
