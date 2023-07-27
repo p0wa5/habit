@@ -8,9 +8,7 @@
 </script>
 
 <div class="main">
-  <HabitContainer {habitsArr} />
-
-  <div class="w-1/3">
-    <HabitForm />
+  <div class="border h-96">
+    <HabitContainer {habitsArr} />
   </div>
 </div>
