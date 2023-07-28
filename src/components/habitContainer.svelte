@@ -10,7 +10,7 @@
   });
 </script>
 <!-- A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event. -->
-<div class="flex flex-col w-1/3 h-96 border-2 justify-left p-4 rounded-xl bg-emerald-800">
+<div class="flex flex-col w-1/3 h-96 border-2 justify-left p-4 rounded-xl bg-emerald-800 overflow-y-auto">
   {#each habitsArr as habit, i}
     <div class="w-1/2 m-1 bg-emerald-600 rounded h-20 px-4 text-white" on:click={() => increaseStreak(habitsArr[i].id, habitsArr[i].streak)}>
       <div class="flex justify-between items-center">
