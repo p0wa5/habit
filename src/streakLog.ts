@@ -9,19 +9,16 @@ let dummyHabit: Habit = {
     updatedAt: new Date()
 }
 
+let streakLog = [
+    {
+    }    
+]
 
 function countDaysBetweenDates(date1: Date, date2: Date) {
-    // Convert both dates to milliseconds
     const date1Ms = date1.getTime();
     const date2Ms = date2.getTime();
-  
-    // Calculate the difference in milliseconds
     const differenceMs = Math.abs(date1Ms - date2Ms);
-  
-    // Convert the difference to days
     const daysDifference = differenceMs / (1000 * 60 * 60 * 24);
-  
-    // Round the result to handle potential daylight saving changes
     return Math.round(daysDifference);
 }
 
