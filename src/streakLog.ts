@@ -10,16 +10,27 @@ let dummyHabit: Habit = {
 }
 
 
+function countDaysBetweenDates(date1: Date, date2: Date) {
+    // Convert both dates to milliseconds
+    const date1Ms = date1.getTime();
+    const date2Ms = date2.getTime();
+  
+    // Calculate the difference in milliseconds
+    const differenceMs = Math.abs(date1Ms - date2Ms);
+  
+    // Convert the difference to days
+    const daysDifference = differenceMs / (1000 * 60 * 60 * 24);
+  
+    // Round the result to handle potential daylight saving changes
+    return Math.round(daysDifference);
+}
+
 function resetStreak(habti: Habit): void {
 // reset the streak of given habti
 }
 
 function saveStreakChange(habit: Habit): void {
 //save date of last change of given habit streak
-}
-
-function CalcTimePassed(Date1: Date, Date2: Date): void {
-// calc. days between last changes. 
 }
 
 function increaseStreak(habit: Habit): void {
