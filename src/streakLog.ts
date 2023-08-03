@@ -15,7 +15,7 @@ function fillStreakLogs(arr: any){
     arr.forEach((habit: Habit ) => {
         streakLogs.push({
             name: habit.name,
-            lastIncreased: new Date(),
+            lastIncreased: 0,
             interval: habit.interval,
         })  
     });
@@ -47,7 +47,7 @@ export function watchStreak(habit: Habit): void {
     let currentDate = new Date();
     let habitLogIndex = streakLogs.findIndex(log => log.name == habit.name)
     let hoursBetweenChanges = countHoursBetweenDates(streakLogs[habitLogIndex].lastIncreased, currentDate)
-    if(streakLogs[habitLogIndex].lastIncreased == "" || hoursBetweenChanges <= habit.interval){
+    if(streakLogs[habitLogIndex].lastIncreased == 0 || hoursBetweenChanges <= habit.interval){
         console.log("habit should be increased")
     } else {
         console.log("habits is over intervall")
