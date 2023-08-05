@@ -17,6 +17,7 @@ export function moveFetchedHabits(data:any) {
     let habits = data; 
     let habitsArr = habits.Habits;
     habitsStore.set(habitsArr)
+    return habitsArr
     
 }
 

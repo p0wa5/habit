@@ -7,14 +7,14 @@
   let habitsArr = moveFetchedHabits(data);
 </script>
 
+<body class="bg bg-emerald-900">
+  <div class="main h-full flex items-center">
+    <HabitContainer {habitsArr} />
+  </div>
+</body>
+
 <style>
   .bg {
     height: 100%;
   }
 </style>
-
-<body class="bg bg-emerald-900">
-  <div class="main h-full flex items-center">
-      <HabitContainer {habitsArr} />
-  </div>
-</body>

@@ -30,10 +30,12 @@ export function watchStreak(habit: Habit): void {
         console.log(`interval: ${habit.interval}`)
         console.log(`hours between last  change: ${hoursBetweenChanges}`)
         increaseStreak(habit.id, habit.streak);
+        habit.updatedAt = currentDate
     } else {
         console.log("habits is over intervall")
         console.log(`interval: ${habit.interval}`)
         console.log(`hours between last  change: ${hoursBetweenChanges}`)
         resetStreak(habit.id, habit.streak)
+        habit.updatedAt = currentDate;
     }
 }
