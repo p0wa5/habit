@@ -12,7 +12,6 @@
   });
 </script>
 
-<!--on:click={() => increaseStreak(habitsArr[i].id, habitsArr[i].streak)-->
 <!-- A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event. -->
 <div
   class="mx-7 flex flex-col w-1/3 h-100vh justify-left p-4 rounded-xl bg-emerald-800 overflow-y-auto"
