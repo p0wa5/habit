@@ -1,28 +1,12 @@
 import type { Habit } from "@prisma/client";
 import { habitsStore } from "./main";
+import { increaseStreak } from "./main";
+import { resetStreak } from "./main";
 let habitsArr: Habit[];
-
-// create a structure which holds all the logs for each habit:
-let streakLogs:any[] = [] ;
 
 habitsStore.subscribe((value) => {
     habitsArr = value;
 });
-
-
-// fill in each habit in the streakLogs:
-function fillStreakLogs(arr: any){
-    arr.forEach((habit: Habit ) => {
-        streakLogs.push({
-            name: habit.name,
-            lastIncreased: 0,
-            interval: habit.interval,
-        })  
-    });
-
-    console.log(streakLogs);
-}
-
 
 function countHoursBetweenDates(date1: Date, date2: Date) {
     const date1Ms = date1.getTime();
@@ -32,24 +16,24 @@ function countHoursBetweenDates(date1: Date, date2: Date) {
     return Math.round(hoursDifference);
 }
 
-function resetStreak(habti: Habit): void {
-// reset the streak of given habti
-}
-
-function saveStreakChange(habit: Habit): void {
-//save date of last change of given habit streak
-}
-
 export function watchStreak(habit: Habit): void {
 // increase the streak of given habitk
     //fill in the habits from the store
-    fillStreakLogs(habitsArr)
     let currentDate = new Date();
-    let habitLogIndex = streakLogs.findIndex(log => log.name == habit.name)
-    let hoursBetweenChanges = countHoursBetweenDates(streakLogs[habitLogIndex].lastIncreased, currentDate)
-    if(streakLogs[habitLogIndex].lastIncreased == 0 || hoursBetweenChanges <= habit.interval){
+    let habitLogIndex = habitsArr.findIndex(habitToIncrease => habitToIncrease.name == habit.name)
+    let hoursBetweenChanges = 0;
+    if(habitsArr[habitLogIndex].updatedAt){
+        hoursBetweenChanges = countHoursBetweenDates(habitsArr[habitLogIndex].updatedAt, currentDate)
+    } else habitsArr[habitLogIndex].updatedAt = currentDate;
+    if(hoursBetweenChanges <= habit.interval){
         console.log("habit should be increased")
+        console.log(`interval: ${habit.interval}`)
+        console.log(`hours between last  change: ${hoursBetweenChanges}`)
+        increaseStreak(habit.id, habit.streak);
     } else {
         console.log("habits is over intervall")
+        console.log(`interval: ${habit.interval}`)
+        console.log(`hours between last  change: ${hoursBetweenChanges}`)
+        resetStreak(habit.id, habit.streak)
     }
 }
