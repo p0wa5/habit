@@ -72,3 +72,35 @@ export const increaseStreakAsync = async (id: number, streak: number) => {
       body: JSON.stringify({ id, streak }),
     });
   };
+
+
+  export const resetStreak = (id: number, streak: number) => {
+    streak = 0;
+    resetStreakAsync(id, streak)
+      .then(() => {
+        //handle streak update in the view
+        habitsStore.update((habits) => habits.map((habit) => {
+          if (habit.id === id) {
+            return {
+              ...habit,
+              streak: streak
+            };
+          }
+          return habit;
+        }));
+      })
+      .catch((error) => {
+        console.error("Error updating habit streak:", error);
+      });
+  };
+  
+export const resetStreakAsync = async (id: number, streak: number) => {
+    console.log(`reset the streak of the habit with the id ${id}`);
+    await fetch("../api/increaseStreak/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, streak }),
+    });
+  };
