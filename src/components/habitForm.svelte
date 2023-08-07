@@ -42,12 +42,15 @@
       <input
         class="bg-emerald-600 p-1 w-full outline-0 rounded-sm placeholder:text-slate-200"
         type="number"
-        name="habit-intervall"
+        name="habit-interval"
         placeholder="24"
       />
     </div>
 
-    <button class="mt-4 w-full p-1 bg-emerald-600 rounded-sm hover:bg-emerald-500 transition duration-500 ease-in-out">create</button>
+    <button
+      class="mt-4 w-full p-1 bg-emerald-600 rounded-sm hover:bg-emerald-500 transition duration-500 ease-in-out"
+      >create</button
+    >
   </form>
 </div>
 

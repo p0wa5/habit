@@ -18,13 +18,14 @@ export const actions = {
         const habitName = data.get('habit-name')
         const habitColor= data.get('habit-color')
         const habitDescription = data.get('habit-description')
+        const habitInterval = data.get('habit-interval')
 
         const newHabit = await prisma.habit.create({
             data: {
                 name: habitName,
-                description: "",
-                interval: 0,
-                streak: 0,
+                description: habitDescription,
+                interval: parseInt(habitInterval, 10),
+                streak: 0, // streak is initial set to 0
             }
         })
     }
