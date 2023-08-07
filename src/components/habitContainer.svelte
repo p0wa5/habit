@@ -4,7 +4,7 @@
   import { deleteHabittemp } from "../main";
   import { increaseStreak } from "../main";
   import { habitsStore } from "../main";
-  import { watchStreak } from "../streakLog";
+  import { addToStreak } from "../streakLog";
   import Streakpreview from "../components/streakpreview.svelte";
 
   habitsStore.subscribe((value) => {
@@ -18,7 +18,7 @@
 >
   {#each habitsArr as habit, i}
     <div
-      on:click={() => watchStreak(habitsArr[i])}
+      on:click={() => addToStreak(habitsArr[i])}
       class="w-1/2 m-1 bg-emerald-600 rounded h-20 px-4 text-white"
     >
       <div class="flex justify-between items-center">
