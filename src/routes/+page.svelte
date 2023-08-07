@@ -10,6 +10,7 @@
 <body class="bg bg-emerald-900">
   <div class="main h-full flex items-center">
     <HabitContainer {habitsArr} />
+    <HabitForm />
   </div>
 </body>
 
