@@ -27,6 +27,7 @@ function setHoursBetweenChange(habit: Habit): number {
         currentDate
         );
     } else if (!habit.updatedAt) {
+        //if updated at is not set, set it to the date of today
         habit.updatedAt = currentDate;
     }
     return hoursBetweenChanges
