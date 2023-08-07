@@ -8,6 +8,7 @@ habitsStore.subscribe((value) => {
     habitsArr = value;
 });
 
+
 // calculates how many hours lay between two dates
 function countHoursBetweenDates(date1: Date, date2: Date) {
     const date1Ms = date1.getTime();
