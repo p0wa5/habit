@@ -45,7 +45,6 @@ function checkStreakInInterval(habit: Habit): boolean {
 }
 
 function streaksActive(habitarray: Habit[]) {
-    console.log("runnnnn")
     habitarray.forEach((habit: Habit) => {
         if (checkStreakInInterval(habit)) {
             console.log(`check habits with the id ${habit.id} -> streak is still active`);
