@@ -106,3 +106,5 @@ export const resetStreakAsync = async (id: number, streak: number) => {
       body: JSON.stringify({ id, streak }),
     });
   };
+
+
