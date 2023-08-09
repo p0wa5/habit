@@ -9,6 +9,7 @@ export interface Habit {
     streak: number
     createdAt: Date
     updatedAt: Date
+    streakHistory: string[]
 }
 
 export let habitsStore = writable<Habit[]>([]);

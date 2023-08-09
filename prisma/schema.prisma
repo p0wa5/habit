@@ -6,23 +6,24 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Habit {
-  id Int @id@default(autoincrement())
-  name String
-  description String
-  interval Int
-  streak Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            Int      @id @default(autoincrement())
+  name          String
+  description   String
+  interval      Int
+  streak        Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  streakHistory String[]
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  email String @unique
-  name String?
+  email     String   @unique
+  name      String?
 }
